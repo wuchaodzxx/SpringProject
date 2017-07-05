@@ -1,16 +1,31 @@
 package com.springmvc.config;
 
+
+
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Description;
-import org.springframework.context.annotation.Scope;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-public class SpringConfig {
-	@Bean(name = "dog")
-	@Description("Provides a basic example of a bean")
-	@Scope("prototype") //对于prototype注解的Bean，每次对该Bean的调用都创建一个新的bean,而singleton注解的Bean，Ioc会共享同一个Bean
-	public Dog dog() {
-		return new Dog();
-	}
+@EnableWebMvc  
+@ComponentScan(basePackages = "com.springmvc") 
+public class SpringConfig extends WebMvcConfigurerAdapter{
+	
+	/**
+     * jsp视图解析器的bean
+     * @return
+     */
+    @Bean
+    public UrlBasedViewResolver setupViewResolver() {
+        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+        resolver.setPrefix("/WEB-INF/view/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+        return resolver;
+    }
+
 }
