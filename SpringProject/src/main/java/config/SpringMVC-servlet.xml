@@ -17,4 +17,9 @@
                         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     <!-- 设置使用注解的类所在的jar包 -->
     <context:component-scan base-package="hello" />
+    <bean id="viewResolver"  
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix" value="/WEB-INF/view/" />  
+        <property name="suffix" value=".jsp" />  
+    </bean>  
 </beans>
