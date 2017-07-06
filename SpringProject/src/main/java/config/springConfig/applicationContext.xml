@@ -25,7 +25,7 @@
 			<ref bean="dataSource" />
 		</property>
 		<property name="configLocation">
-			<value>classpath:config/hibernate.cfg.xml</value>
+			<value>classpath:config/hibernateConfig/hibernate.cfg.xml</value>
 		</property>
 	</bean>
 

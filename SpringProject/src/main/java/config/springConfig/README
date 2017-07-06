@@ -1,7 +1,7 @@
 web.xml配置spring，指明applicationContext.xml和SpringMVC-servlet.xml：
 		<context-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:config/applicationContext.xml</param-value>
+			<param-value>classpath:config/springConfig/applicationContext.xml</param-value>
 		</context-param>
 
 		<listener>
@@ -15,7 +15,7 @@ web.xml配置spring，指明applicationContext.xml和SpringMVC-servlet.xml：
 			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 			<init-param>
 				<param-name>contextConfigLocation</param-name>
-				<param-value>classpath:config/SpringMVC-servlet.xml</param-value>
+				<param-value>classpath:config/springConfig/SpringMVC-servlet.xml</param-value>
 			</init-param>
 			<load-on-startup>1</load-on-startup>
 		</servlet>
