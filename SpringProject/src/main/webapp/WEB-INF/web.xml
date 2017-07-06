@@ -5,47 +5,32 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 
-		<!-- 配置 ContextLoaderListener 来使用 AnnotationConfigWebApplicationContext，而不是默认的XmlWebApplicationContext  -->
-	<context-param>
-		<!-- 初始化contextClass参数值为AnnotationConfigWebApplicationContext -->
-		<param-name>contextClass</param-name>
-		<param-value>
-			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-		</param-value>
-	</context-param>
-
-	<!-- 配置@Configuration注解的类所在路径 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>com.springmvc.config</param-value>
+		<param-value>classpath:config/applicationContext.xml</param-value>
+		<!-- 默认是/WEB-INF/applicationContext.xml -->
 	</context-param>
 
-	<!-- 使用ContextLoaderListener来启动根应用 -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
 	</listener>
 
-	<!-- Declare a Spring MVC DispatcherServlet as usual -->
 	<servlet>
-		<servlet-name>dispatcher</servlet-name>
+		<servlet-name>SpringMVC</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- 配置 DispatcherServlet 使用AnnotationConfigWebApplicationContext 而不是默认的XmlWebApplicationContext -->
-		<init-param>
-			<param-name>contextClass</param-name>
-			<param-value>
-				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-			</param-value>
-		</init-param>
-		<!--  配置 @Configuration 限定的类的路径 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>com.springmvc.config</param-value>
+			<param-value>classpath:config/SpringMVC-servlet.xml</param-value>
+			<!-- 默认是/WEB-INF/[servlet名字]-servlet.xml -->
 		</init-param>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<!-- map all requests for /* to the dispatcher servlet -->
 	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
+		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
 </web-app>

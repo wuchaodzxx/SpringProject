@@ -1,9 +1,7 @@
 package pakage;
-import org.springframework.context.ApplicationContext;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.springmvc.config.springconfig.Dog;
-import com.springmvc.config.springconfig.SpringConfig;
 
 public class Main {
 
@@ -14,8 +12,8 @@ public class Main {
 		//context.register(Bean01.class);
 		context.scan("com.springmvc.config");
 		context.refresh();
-	    Dog dog = context.getBean(Dog.class);
-	    dog.bark();
+	   
+	
 	}
 
 }
