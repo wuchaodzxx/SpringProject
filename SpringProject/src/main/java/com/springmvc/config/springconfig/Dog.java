@@ -1,4 +1,4 @@
-package com.springmvc.config;
+package com.springmvc.config.springconfig;
 
 public class Dog {
 	public String name;

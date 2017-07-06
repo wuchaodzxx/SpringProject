@@ -2,13 +2,13 @@ package pakage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.springmvc.config.Dog;
-import com.springmvc.config.SpringConfig;
+import com.springmvc.config.springconfig.Dog;
+import com.springmvc.config.springconfig.SpringConfig;
 
 public class Main {
 
 	public static void main(String[] args) {
-		//AnnotationConfigApplicationContext构造方法传入的是一个或多个注解类，注解类里使用@Bean声明了多个Bean
+		//AnnotationConfigApplicationContext鏋勯�犳柟娉曚紶鍏ョ殑鏄竴涓垨澶氫釜娉ㄨВ绫伙紝娉ㄨВ绫婚噷浣跨敤@Bean澹版槑浜嗗涓狟ean
 		//ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
 		AnnotationConfigApplicationContext  context = new AnnotationConfigApplicationContext ();
 		//context.register(Bean01.class);

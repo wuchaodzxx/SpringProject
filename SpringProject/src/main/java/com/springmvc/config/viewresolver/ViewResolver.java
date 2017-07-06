@@ -1,24 +1,14 @@
-package com.springmvc.config;
-
-
+package com.springmvc.config.viewresolver;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-@EnableWebMvc  
-@ComponentScan(basePackages = "com.springmvc") 
-public class SpringConfig extends WebMvcConfigurerAdapter{
-	
-	/**
-     * jspÊÓÍ¼½âÎöÆ÷µÄbean
-     * @return
-     */
+public class ViewResolver extends WebMvcConfigurerAdapter{
+
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
@@ -27,5 +17,4 @@ public class SpringConfig extends WebMvcConfigurerAdapter{
         resolver.setViewClass(JstlView.class);
         return resolver;
     }
-
 }
