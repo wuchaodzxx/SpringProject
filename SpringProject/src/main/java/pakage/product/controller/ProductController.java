@@ -19,7 +19,6 @@ public class ProductController {
     	Product product = new Product();
     	product.setProductName("p1");
     	product.setPrice(100);
-    	product.setProductId(System.currentTimeMillis()+"");
     	productBO.addProduct(product);
         return "add product successfull!";
     }
