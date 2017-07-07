@@ -15,8 +15,14 @@
                         http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
                         http://www.springframework.org/schema/tx 
                         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-    <!-- 设置使用注解的类所在的jar包 -->
+    <!-- 设置使用注解的类所在的jar包
+    	将带有@Component、@Repository、@Service、@Controller标签的类自动注册到spring容器。
+    	对标记了 Spring's @Required、@Autowired、JSR250's @PostConstruct、@PreDestroy、
+    	@Resource、JAX-WS's @WebServiceRef、EJB3's @EJB、JPA's @PersistenceContext、
+    	@PersistenceUnit等注解的类进行对应的操作使注解生效（包含了annotation-config标签的作用）。
+     -->
     <context:component-scan base-package="hello" />
+    <context:component-scan base-package="pakage" />
     <bean id="viewResolver"  
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
         <property name="prefix" value="/WEB-INF/view/" />  

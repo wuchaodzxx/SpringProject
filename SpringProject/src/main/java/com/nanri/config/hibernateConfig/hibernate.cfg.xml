@@ -7,7 +7,12 @@
 
 	<session-factory>
 		<property name="show_sql">true</property>
-
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.autocommit">true</property>
+		
+		
+		<mapping resource="pakage/product/po/product.hbm.xml" />
+		
+		
 	</session-factory>
 </hibernate-configuration>
