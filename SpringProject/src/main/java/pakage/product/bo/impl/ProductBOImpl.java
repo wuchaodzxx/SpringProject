@@ -11,7 +11,6 @@ import pakage.product.dao.intf.ProductDAO;
 import pakage.product.po.Product;
 
 @Repository("productBO")
-@Service
 public class ProductBOImpl implements ProductBO{
 
 	@Resource(name="productDAO")

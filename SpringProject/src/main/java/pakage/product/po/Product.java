@@ -2,7 +2,7 @@ package pakage.product.po;
 
 public class Product {
 	private String productName;
-	private String productId;
+	private int productId;
 	private int  price;
 	public String getProductName() {
 		return productName;
@@ -10,10 +10,10 @@ public class Product {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 	public int getPrice() {
