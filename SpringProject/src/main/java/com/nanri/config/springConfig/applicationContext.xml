@@ -17,7 +17,7 @@
 		对标记了 Spring's @Required、@Autowired、JSR250's @PostConstruct、@PreDestroy、 @Resource、JAX-WS's 
 		@WebServiceRef、EJB3's @EJB、JPA's @PersistenceContext、 @PersistenceUnit等注解的类进行对应的操作使注解生效（包含了annotation-config标签的作用）。 -->
 	<context:component-scan base-package="pakage" />
-	<context:component-scan base-package="hello" />
+	<context:component-scan base-package="com.nanri.webservice"/>
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
 			<value>java:/comp/env/DBSERVER_DS</value>
@@ -63,4 +63,8 @@
 
 	<!-- 导入bean配置文件xml -->
 	<import resource="classpath:/pakage/product/springconfig/productbeans.xml" />
+	<!-- 
+	<import resource="classpath:/com/nanri/config/webserviceConfig/serviceBeansConfig.xml" />
+	 -->
+
 </beans>

@@ -6,9 +6,20 @@
 	<display-name>Archetype Created Web Application</display-name>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:com/nanri/config/springConfig/applicationContext.xml</param-value>
+		<param-value>classpath:com/nanri/config/springConfig/applicationContext.xml,
+			classpath:com/nanri/config/webserviceConfig/applicationContext-server.xml
+		</param-value>
 		<!-- 默认是/WEB-INF/applicationContext.xml -->
 	</context-param>
+	<context-param>  
+        <param-name>log4jConfigLocation</param-name>  
+        <param-value>classpath:com/nanri/config/logConfig/log4j.properties</param-value>  
+    </context-param>  
+    <!-- 应用名.root 相当于添加一个系统变量，主要是为了指定应用的路径。 -->
+    <context-param>  
+        <param-name>webAppRootKey</param-name>  
+        <param-value>SpringProject.root</param-value>  
+    </context-param>  
 	<filter>
 		<filter-name>SpringOpenSessionInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
@@ -22,7 +33,11 @@
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
-
+    <!-- 加载Spring框架中的log4j监听器Log4jConfigListener -->
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+	<!-- DispatcherServlet配置 -->
 	<servlet>
 		<servlet-name>SpringMVC</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -34,6 +49,14 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<servlet>
+		<servlet-name>CXFService</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFService</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
