@@ -62,7 +62,7 @@
 
 
 	<!-- 导入bean配置文件xml -->
-	<import resource="classpath:/pakage/product/springconfig/productbeans.xml" />
+	<import resource="classpath:/com/nanri/test/product/springconfig/productbeans.xml" />
 	<!-- 
 	<import resource="classpath:/com/nanri/config/webserviceConfig/serviceBeansConfig.xml" />
 	 -->

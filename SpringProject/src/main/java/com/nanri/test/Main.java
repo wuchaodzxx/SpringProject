@@ -1,4 +1,4 @@
-package pakage;
+package com.nanri.test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

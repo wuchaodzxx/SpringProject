@@ -1,4 +1,4 @@
-package com.nanri.webservice.serviceTest2;
+package com.nanri.test.webservice;
 
 public class User {  
     int id ;  

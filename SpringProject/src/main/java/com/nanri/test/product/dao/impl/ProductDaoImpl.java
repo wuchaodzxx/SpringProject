@@ -1,4 +1,4 @@
-package pakage.product.dao.impl;
+package com.nanri.test.product.dao.impl;
 
 import javax.annotation.Resource;
 
@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import pakage.product.dao.intf.ProductDAO;
-import pakage.product.po.Product;
+
+import com.nanri.test.product.dao.intf.ProductDAO;
+import com.nanri.test.product.po.Product;
 
 @Repository("productDAO")
 public class ProductDaoImpl implements ProductDAO {

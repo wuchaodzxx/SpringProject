@@ -10,9 +10,9 @@
     http://cxf.apache.org/jaxws   
     http://cxf.apache.org/schemas/jaxws.xsd"> 
  
-	<bean id="userServiceBean" class="com.nanri.webservice.serviceTest2.ServiceImpl" />
+	<bean id="userServiceBean" class="com.nanri.test.webservice.ServiceImpl" />
 	<!-- 注意下面的address，这里的address的名称就是访问的WebService的name -->
-	<jaxws:server id="userService" serviceClass="com.nanri.webservice.serviceTest2.IService"
+	<jaxws:server id="userService" serviceClass="com.nanri.test.webservice.IService"
 		address="/Users">
 		<jaxws:serviceBean>
 			<!-- 要暴露的 bean 的引用 -->

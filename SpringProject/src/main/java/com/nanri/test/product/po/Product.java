@@ -1,4 +1,4 @@
-package pakage.product.po;
+package com.nanri.test.product.po;
 
 public class Product {
 	private String productName;

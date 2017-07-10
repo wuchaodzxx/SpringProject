@@ -1,4 +1,4 @@
-package com.nanri.webservice.serviceTest2;
+package com.nanri.test.webservice;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;

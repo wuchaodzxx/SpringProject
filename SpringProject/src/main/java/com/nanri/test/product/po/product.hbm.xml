@@ -11,7 +11,7 @@
 			http://www.hibernate.org/
 		-->
 
-	<class name="pakage.product.po.Product"
+	<class name="com.nanri.test.product.po.Product"
 		table="PRODUCT">
 		<meta attribute="class-description" inherit="false">
 			@hibernate.class table="PRODUCT"

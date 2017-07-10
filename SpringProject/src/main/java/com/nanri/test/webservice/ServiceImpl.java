@@ -1,4 +1,4 @@
-package com.nanri.webservice.serviceTest2;
+package com.nanri.test.webservice;
 
 import java.util.Date;
 import javax.jws.WebParam;

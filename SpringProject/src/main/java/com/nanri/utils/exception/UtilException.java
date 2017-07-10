@@ -2,7 +2,7 @@ package com.nanri.utils.exception;
 
 import org.apache.log4j.Logger;
 
-import pakage.product.controller.ProductController;
+import com.nanri.test.product.controller.ProductController;
 
 public class UtilException extends BaseException {
 	public UtilException(){

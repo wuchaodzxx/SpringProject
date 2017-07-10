@@ -11,7 +11,7 @@
 		<property name="connection.autocommit">true</property>
 		
 		
-		<mapping resource="pakage/product/po/product.hbm.xml" />
+		<mapping resource="com/nanri/test/product/po/product.hbm.xml" />
 		
 		
 	</session-factory>

@@ -1,4 +1,4 @@
-package pakage.product.bo.impl;
+package com.nanri.test.product.bo.impl;
 
 import javax.annotation.Resource;
 
@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pakage.product.bo.intf.ProductBO;
-import pakage.product.dao.intf.ProductDAO;
-import pakage.product.po.Product;
+import com.nanri.test.product.bo.intf.ProductBO;
+import com.nanri.test.product.dao.intf.ProductDAO;
+import com.nanri.test.product.po.Product;
 
 @Repository("productBO")
 public class ProductBOImpl implements ProductBO{
