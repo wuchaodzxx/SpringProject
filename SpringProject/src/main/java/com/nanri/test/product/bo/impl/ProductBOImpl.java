@@ -4,22 +4,26 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.nanri.test.product.bo.intf.ProductBO;
 import com.nanri.test.product.dao.intf.ProductDAO;
 import com.nanri.test.product.po.Product;
 
-@Repository("productBO")
+
+@Service("productBO")
+@Transactional
 public class ProductBOImpl implements ProductBO{
 
 	@Resource(name="productDAO")
 	public ProductDAO productDAO;
-	
-	@Transactional
-	public void addProduct(Product product) {
+
+	@Transactional(rollbackFor={Exception.class, RuntimeException.class})
+	public void addProduct(Product product) throws Exception {
 		System.out.println("ProductBOImpl addProduct!");
 		productDAO.addProduct(product);
+		//throw new RuntimeException("addProduct");
 	}
 
 }

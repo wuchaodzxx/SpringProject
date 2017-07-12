@@ -20,6 +20,7 @@
         <param-name>webAppRootKey</param-name>  
         <param-value>SpringProject.root</param-value>  
     </context-param>  
+
 	<filter>
 		<filter-name>SpringOpenSessionInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
@@ -28,6 +29,7 @@
 		<filter-name>SpringOpenSessionInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
@@ -61,4 +63,5 @@
 		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+  
 </web-app>

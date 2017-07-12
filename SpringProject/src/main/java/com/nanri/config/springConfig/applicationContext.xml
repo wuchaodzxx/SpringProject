@@ -16,7 +16,7 @@
 	<!-- 设置使用注解的类所在的jar包 将带有@Component、@Repository、@Service、@Controller标签的类自动注册到spring容器。 
 		对标记了 Spring's @Required、@Autowired、JSR250's @PostConstruct、@PreDestroy、 @Resource、JAX-WS's 
 		@WebServiceRef、EJB3's @EJB、JPA's @PersistenceContext、 @PersistenceUnit等注解的类进行对应的操作使注解生效（包含了annotation-config标签的作用）。 -->
-	<context:component-scan base-package="pakage" />
+	<context:component-scan base-package="com.nanri" />
 	<context:component-scan base-package="com.nanri.webservice"/>
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
@@ -40,19 +40,8 @@
 		</property>
 	</bean>
 
-	<!-- 配置事务事务属性 -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="get*" read-only="true" />
-			<tx:method name="*" />
-		</tx:attributes>
-	</tx:advice>
-	<!-- 配置事务切点，并把切点和事务属性关联起来 -->
-	<aop:config>
-		<aop:pointcut expression="execution(* pakage.product.dao.*.*(..))"
-			id="txPointcut" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
-	</aop:config>
+	<!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务 -->  
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" /> 
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource">

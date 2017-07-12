@@ -21,11 +21,33 @@
     	@Resource、JAX-WS's @WebServiceRef、EJB3's @EJB、JPA's @PersistenceContext、
     	@PersistenceUnit等注解的类进行对应的操作使注解生效（包含了annotation-config标签的作用）。
      -->
-    <context:component-scan base-package="com.nanri.test" />
+    <context:component-scan base-package="com.nanri.test">
+    	<!-- 
+    		Spring容器优先加载由ServletContextListener（对应ApplicationContext.xml）产生的父容器，
+    		而SpringMVC（对应SpringMVC-servlet.xml）产生的是子容器。
+			子容器Controller进行扫描装配时装配的@Service注解的实例是没有经过事务加强处理，
+			即没有事务处理能力的Service，而父容器进行初始化的Service是保证事务的增强处理能力的。
+			如果不在子容器中将Service exclude掉，此时得到的将是原样的无事务处理能力的Service，
+			因为在多上下文的情况下，如果同一个bean被定义两次，后面一个优先。
+    	 -->
+    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" /> 
+    </context:component-scan>
 
     <bean id="viewResolver"  
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
         <property name="prefix" value="/WEB-INF/view/" />  
         <property name="suffix" value=".jsp" />  
+    </bean>  
+    
+    <!-- 将Controller抛出的异常转到特定View,异常映射处理器 -->  
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->  
+        <!--<property name="exceptionAttribute" value="ex"></property>-->  
+        <property name="exceptionMappings">  
+            <props>  
+                <prop key="java.lang.Throwable">errors/500</prop>  
+                <prop key="com.nanri.utils.exception.DAOException">errors/dao_error</prop>  
+            </props>              
+        </property>  
     </bean>  
 </beans>
